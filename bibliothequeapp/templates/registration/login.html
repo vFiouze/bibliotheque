@@ -1,0 +1,31 @@
+<script>
+    window.addEventListener("load",function(){
+        var v = document.getElementsByTagName("input")
+        for(i=0;i<3;i++){
+            v[i].classList.add("form-control")
+        }
+        v = document.getElementsByTagName("button")
+        v[0].classList.add("btn")
+        v[0].classList.add("btn-primary")
+        v[0].classList.add("btn-lg")
+        v[0].classList.add("btn-block")
+    })
+</script>
+{% load staticfiles %}
+<link rel= "stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel= "stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+<link rel= "stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
+<link rel= "stylesheet" href="{% static 'css/custom.css'%}">
+<div class= "container">
+    <div class="row>">
+        <div class="col align-self-center">
+            <h2>Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type='submit'>Connexion</button>
+            </form>
+        </div>
+    </div>
+</div>
+
