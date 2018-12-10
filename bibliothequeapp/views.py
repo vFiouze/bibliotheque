@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.template import loader
-from bibliothequeapp.models import Loan
+from bibliothequeapp.models import Loan, Member
 import pdb
 from datetime import date
 from django.core.paginator import Paginator
@@ -40,3 +40,9 @@ def liste(request):
     for i in p.page_range:
         ran.append(i)
     return JsonResponse({"result":"OK", "data" : list(ret),"range" : ran})
+
+def searchmember(request):
+    member=request.GET["member"]
+    param = {"MEMBER_ID__startswith":str(member)}
+    res = Member.objects.filter(**param).values()
+    return JsonResponse({"result":"OK", "data" : list(res)})

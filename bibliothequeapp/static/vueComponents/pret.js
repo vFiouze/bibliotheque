@@ -1,11 +1,26 @@
-const templatePret = Vue.component('templatePret', { 
+const templatePret = Vue.component('templatePret', {
     data : function(){
         return{
             name : "",
             actif : false,
             res : [],
-            page : 1
+            page : 1,
+            showComponent: false
         }
+    },
+    watch : {
+        memberSearch: function(){
+            var texte = this.memberSearch
+            if (texte.length >=2){
+                url = 'http://localhost:8000/bibliotheque/searchmembre?member='+texte
+                fetch(url)
+                .then(data=>{
+                    return data.json()})
+                .then(res=>{var a =1
+                            a=a+1
+                })
+            }
+        },
     },
     methods : {
         filter(p){
@@ -61,15 +76,19 @@ const templatePret = Vue.component('templatePret', {
                         }
                         var x = document.getElementById(p.toString()).parentNode.classList.add("active")
                        })
-        },  
+        },
+        ajoutpret(){
+            this.showComponent==true ? this.showComponent=false : this.showComponent=true
+            }
     },
     mounted:function(){
         //On restaure l'état à l'affichage du composant
         this.name = store.state.name
     },
-    template :  '<div> \
-                    <h1>Pret</h1> \
-                    <p>Consulter les prêt en cours ou ajoutez en un</p> \
+    template :  '<div id="content"> \
+                <h1>Pret</h1> \
+                    <p>Consulter les prêts en cours ou <a href="#" v-on:click="ajoutpret" data-toggle="modal" data-target="#modalAjout">ajoutez en un</a></p>\
+                    <ajoutPret v-if="showComponent"></ajoutPret>\
                     <div class="container"> \
                         <form> \
                             <div class ="row align-items-center"> \

@@ -1,9 +1,15 @@
-
+<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
 {% load staticfiles %}
 <script src = "{% static 'javascript/moment.js' %}"></script>
 <script src = "{% static 'javascript/vue.js' %}" type="application/javascript"></script>
 <script src = "{% static 'javascript/vue-router.js' %}" type="application/javascript"></script>
 <script src = "{% static 'javascript/vuex.js' %}" type="application/javascript"></script>
+<script src = "{% static 'vueComponents/ajoutPret.js' %}" type="application/javascript"></script>
 <script src = "{% static 'vueComponents/pret.js' %}" type="application/javascript"></script>
 <script src = "{% static 'vueComponents/membre.js' %}" type="application/javascript"></script>
 <script src = "{% static 'vueComponents/personne.js' %}" type="application/javascript"></script>
@@ -14,6 +20,7 @@
 <link rel= "stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
 <link rel= "stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
 <link rel= "stylesheet" href="{% static 'css/custom.css'%}">
+<script src = "{% static 'javascript/bootbox.min.js' %}"></script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse" id="navbarColor01">
